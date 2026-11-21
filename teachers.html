@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Педагогический состав — Школьный навигатор №60</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./responsive.css">
+  <script src="./data.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body data-page="teachers">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="./index.html" class="brand" aria-label="Школьный навигатор №60 — На главную">
+        <img src="./school-logo.png" alt="Эмблема Школьный навигатор №60" class="brand-logo" width="40" height="40">
+        <div class="brand-text">
+          <span class="brand-title">Школьный навигатор №60</span>
+          <span class="brand-sub">МБОУ «СОШ № 60» · Новокузнецк</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Открыть меню">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Основная навигация">
+        <a href="./index.html" class="nav-link">Главная</a>
+        <a href="./teachers.html" class="nav-link is-active">Учителя</a>
+        <a href="./map.html" class="nav-link">Карта школы</a>
+        <a href="./schedule.html" class="nav-link">Расписание звонков</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="container page-head-grid">
+        <div>
+          <span class="section-index">02 / СПРАВОЧНИК СОТРУДНИКОВ</span>
+          <h1 class="page-title">Педагогический состав</h1>
+        </div>
+        <p class="page-lead">
+          Полный реестр сотрудников МБОУ «СОШ № 60» по официальному документу школы (40 человек). Нажмите на любого сотрудника, чтобы открыть карточку или перейти к кабинету на схеме школы.
+        </p>
+      </div>
+    </section>
+
+    <section class="directory-section">
+      <div class="container">
+        <div class="filter-bar" role="search">
+          <div class="filter-field filter-search">
+            <label for="teacherSearch" class="field-label">Поиск по ФИО, предмету или кабинету</label>
+            <input
+              type="search"
+              id="teacherSearch"
+              class="text-input"
+              placeholder="Например: Борисова, математика, 307, Спортзал..."
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="filter-field">
+            <label for="subjectFilter" class="field-label">Фильтр по предмету</label>
+            <select id="subjectFilter" class="select-input">
+              <option value="all">Все предметы</option>
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="roleFilter" class="field-label">Фильтр по должности</label>
+            <select id="roleFilter" class="select-input">
+              <option value="all">Все должности</option>
+            </select>
+          </div>
+
+          <div class="filter-actions">
+            <button type="button" id="resetFiltersBtn" class="btn btn-ghost">Сбросить</button>
+          </div>
+        </div>
+
+        <div class="results-meta">
+          <div id="teachersCount" class="count-badge" aria-live="polite">Найдено сотрудников: 40 из 40</div>
+          <div class="meta-hint">Данные сверены с документом «Педагогический состав школы 60»</div>
+        </div>
+
+        <div class="directory-workspace">
+          <div class="table-wrapper">
+            <table class="staff-table" id="staffTable">
+              <thead>
+                <tr>
+                  <th class="col-num">№</th>
+                  <th class="col-name">Фамилия, имя, отчество</th>
+                  <th class="col-role">Предмет / должность</th>
+                  <th class="col-room">Кабинет / место</th>
+                  <th class="col-action">Навигация</th>
+                </tr>
+              </thead>
+              <tbody id="teachersTableBody">
+              </tbody>
+            </table>
+
+            <div class="empty-state" id="teachersEmptyState" hidden>
+              <span class="mono-tag">0 РЕЗУЛЬТАТОВ</span>
+              <h3>Сотрудники по вашему запросу не найдены</h3>
+              <p>Проверьте написание фамилии, номера кабинета или сбросьте выбранные фильтры.</p>
+              <button type="button" id="emptyResetBtn" class="btn btn-primary">Показать весь список (40)</button>
+            </div>
+          </div>
+
+          <aside class="inspector-panel" id="teacherInspector" aria-live="polite">
+            <span class="mono-tag">КАРТОЧКА СОТРУДНИКА</span>
+            <div id="inspectorBody" class="inspector-content">
+              <p class="inspector-placeholder">
+                Выберите любого сотрудника в списке слева, чтобы просмотреть подробную информацию и перейти к его кабинету на карте школы.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <strong>Школьный навигатор №60</strong>
+        <p>Индивидуальный учебный проект (допуск к ОГЭ). МБОУ «СОШ № 60», г. Новокузнецк.</p>
+      </div>
+      <div class="footer-links">
+        <a href="./index.html">Главная</a>
+        <a href="./teachers.html">Учителя</a>
+        <a href="./map.html">Карта школы</a>
+        <a href="./schedule.html">Расписание звонков</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

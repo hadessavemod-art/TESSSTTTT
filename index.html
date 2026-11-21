@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Школьный навигатор №60 — МБОУ «СОШ № 60» г. Новокузнецка</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./responsive.css">
+  <script src="./data.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="./index.html" class="brand" aria-label="Школьный навигатор №60 — На главную">
+        <img src="./school-logo.png" alt="Эмблема Школьный навигатор №60" class="brand-logo" width="40" height="40">
+        <div class="brand-text">
+          <span class="brand-title">Школьный навигатор №60</span>
+          <span class="brand-sub">МБОУ «СОШ № 60» · Новокузнецк</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Открыть меню">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Основная навигация">
+        <a href="./index.html" class="nav-link is-active">Главная</a>
+        <a href="./teachers.html" class="nav-link">Учителя</a>
+        <a href="./map.html" class="nav-link">Карта школы</a>
+        <a href="./schedule.html" class="nav-link">Расписание звонков</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="editorial-hero">
+      <div class="container hero-grid">
+        <div class="hero-primary">
+          <div class="meta-strip">
+            <span class="mono-tag">ИНФОРМАЦИОННАЯ СИСТЕМА</span>
+            <span class="mono-divider">/</span>
+            <span class="mono-tag">УЛ. ДУЗЕНКО, 14А</span>
+          </div>
+          <h1 class="hero-title">Школьный навигатор №60</h1>
+          <p class="hero-lead">
+            Единый цифровой путеводитель по МБОУ «СОШ № 60» города Новокузнецка. Помогает ученикам, родителям, новым сотрудникам и гостям школы быстро находить кабинеты, педагогов и актуальное время звонков без бумажных стендов.
+          </p>
+
+          <div class="hero-actions">
+            <a href="./map.html" class="btn btn-primary">Открыть карту школы →</a>
+            <a href="./teachers.html" class="btn btn-secondary">Справочник учителей (40)</a>
+            <a href="./schedule.html" class="btn btn-ghost">Расписание звонков</a>
+          </div>
+
+          <dl class="hero-metrics">
+            <div class="metric-item">
+              <dt>Педагоги и сотрудники</dt>
+              <dd class="mono-num">40</dd>
+            </div>
+            <div class="metric-item">
+              <dt>Этажей в схеме</dt>
+              <dd class="mono-num">04</dd>
+            </div>
+            <div class="metric-item">
+              <dt>Уроков в сетке</dt>
+              <dd class="mono-num">10</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual">
+          <figure class="architectural-frame">
+            <img src="./school-building.jpg" alt="Здание МБОУ СОШ №60 города Новокузнецка" class="hero-photo">
+            <figcaption class="frame-caption">
+              <span class="mono-tag">ОБЪЕКТ 01</span>
+              <span>МБОУ «СОШ № 60», Орджоникидзевский район, г. Новокузнецк (иллюстративный вид фасада)</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="status-ribbon" aria-label="Текущий статус уроков">
+      <div class="container status-ribbon-inner" id="homeLiveStatus">
+        <div class="status-label">
+          <span class="status-dot"></span>
+          <span class="mono-tag">СТАТУС УЧЕБНОГО ДНЯ</span>
+        </div>
+        <div class="status-value" id="homeStatusText">Загрузка данных расписания...</div>
+        <a href="./schedule.html" class="status-link">Подробная сетка звонков →</a>
+      </div>
+    </section>
+
+    <section class="section-problem">
+      <div class="container problem-grid">
+        <div class="problem-heading-col">
+          <span class="section-index">01 / ПРОБЛЕМА И РЕШЕНИЕ</span>
+          <h2 class="section-title">Зачем школе цифровой навигатор</h2>
+          <figure class="secondary-frame">
+            <img src="./school-interior.jpg" alt="Учебный коридор школы" class="interior-photo">
+            <figcaption class="frame-caption">
+              <span class="mono-tag">СРЕДА</span>
+              <span>Внутренняя навигация по этажам и учебным корпусам</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="problem-content-col">
+          <div class="manifesto-block">
+            <h3>Проблема</h3>
+            <p>
+              В начале учебного года, при смене расписания, проведении олимпиад и родительских собраний ученики младших и средних классов, родители и гости школы сталкиваются с одинаковой трудностью: сложно быстро узнать, в каком кабинете принимает конкретный преподаватель и на каком этаже находится нужная аудитория.
+            </p>
+          </div>
+
+          <div class="manifesto-block">
+            <h3>Решение</h3>
+            <p>
+              «Школьный навигатор №60» связывает три ключевых справочника в единую систему. Достаточно ввести фамилию учителя — система покажет его предмет, номер кабинета и сразу откроет этот кабинет на поэтажной схеме школы.
+            </p>
+          </div>
+
+          <div class="directory-index">
+            <a href="./teachers.html" class="index-row">
+              <span class="index-num">01</span>
+              <div class="index-body">
+                <strong>Справочник педагогического состава</strong>
+                <span>Поиск по ФИО, предмету и номеру кабинета с фильтрацией по должностям</span>
+              </div>
+              <span class="index-arrow">→</span>
+            </a>
+
+            <a href="./map.html" class="index-row">
+              <span class="index-num">02</span>
+              <div class="index-body">
+                <strong>Интерактивная карта школы</strong>
+                <span>Поэтажная схема (1–4 этажи), поиск помещений и подсветка выбранного кабинета</span>
+              </div>
+              <span class="index-arrow">→</span>
+            </a>
+
+            <a href="./schedule.html" class="index-row">
+              <span class="index-num">03</span>
+              <div class="index-body">
+                <strong>Расписание школьных звонков</strong>
+                <span>Точное время начала и окончания уроков, длительность перемен и живой таймер</span>
+              </div>
+              <span class="index-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-facts">
+      <div class="container facts-grid">
+        <div class="fact-box">
+          <span class="mono-tag">ОФИЦИАЛЬНЫЕ СВЕДЕНИЯ</span>
+          <h3>МБОУ «СОШ № 60» г. Новокузнецка</h3>
+          <ul class="fact-list">
+            <li><strong>Адрес:</strong> 654025, Кемеровская область — Кузбасс, г. Новокузнецк, Орджоникидзевский р-н, ул. Дузенко, д. 14А</li>
+            <li><strong>Директор:</strong> Янькин Дмитрий Валерьевич</li>
+            <li><strong>Телефон приёмной:</strong> +7 (3843) 31-07-59</li>
+            <li><strong>Официальный портал:</strong> <a href="https://shkola60-kuz.kemobl.ru/" target="_blank" rel="noopener noreferrer">shkola60-kuz.kemobl.ru</a></li>
+          </ul>
+        </div>
+
+        <div class="fact-box fact-box-muted">
+          <span class="mono-tag">ДОСТОВЕРНОСТЬ ДАННЫХ ПРОЕКТА</span>
+          <h3>Источники информации</h3>
+          <p>
+            Список из 40 сотрудников и закреплённые за ними кабинеты внесены строго по официальному документу школы. Расписание звонков сформировано на основе предоставленной таблицы школы (сетка на 10 уроков). Поэтажная карта носит схематический характер на основе нумерации кабинетов и подготовлена для последующей привязки архитектурных планов БТИ.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <strong>Школьный навигатор №60</strong>
+        <p>Индивидуальный учебный проект (допуск к ОГЭ). МБОУ «СОШ № 60», г. Новокузнецк.</p>
+      </div>
+      <div class="footer-links">
+        <a href="./index.html">Главная</a>
+        <a href="./teachers.html">Учителя</a>
+        <a href="./map.html">Карта школы</a>
+        <a href="./schedule.html">Расписание звонков</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
