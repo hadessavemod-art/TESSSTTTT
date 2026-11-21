@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Расписание звонков — Школьный навигатор №60</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./responsive.css">
+  <script src="./data.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body data-page="schedule">
+  <header class="global-nav">
+    <div class="nav-container">
+      <a href="./index.html" class="nav-brand" aria-label="Школьный навигатор №60">
+        <img src="./school-logo.png" alt="Логотип Школьный навигатор №60" class="nav-logo" width="24" height="24">
+        <span>Навигатор №60</span>
+      </a>
+
+      <button class="nav-burger" id="navToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Меню">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+
+      <nav class="nav-links" id="mainNav" aria-label="Основная навигация">
+        <a href="./index.html" class="nav-item">Обзор</a>
+        <a href="./teachers.html" class="nav-item">Учителя</a>
+        <a href="./map.html" class="nav-item">Карта школы</a>
+        <a href="./schedule.html" class="nav-item is-active">Звонки</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="subpage-header">
+      <div class="container">
+        <p class="eyebrow">Временная шкала</p>
+        <h1 class="subpage-title">Расписание звонков</h1>
+        <p class="subpage-lead">
+          Точное время уроков и перемен МБОУ «СОШ № 60» по официальному фотодокументу расписания (сетка «Пятница», 10 уроков).
+        </p>
+      </div>
+    </section>
+
+    <section class="schedule-workspace">
+      <div class="container">
+        <!-- Минималистичное табло времени и обратного отсчёта -->
+        <div class="time-overview">
+          <div class="time-metric">
+            <span class="detail-eyebrow">Местное время</span>
+            <div class="metric-display tabular" id="liveClock">--:--:--</div>
+            <p class="metric-caption" id="liveDate">Загрузка...</p>
+          </div>
+
+          <div class="time-metric time-metric-center">
+            <span class="detail-eyebrow" id="periodBadge">Статус</span>
+            <h2 class="status-title" id="currentPeriodTitle">Определение этапа...</h2>
+            <p class="metric-caption" id="nextPeriodInfo">Расчёт следующего звонка...</p>
+          </div>
+
+          <div class="time-metric">
+            <span class="detail-eyebrow">До звонка</span>
+            <div class="metric-display accent-blue tabular" id="bellCountdown">--:--</div>
+            <div class="thin-progress" aria-hidden="true">
+              <div class="thin-progress-bar" id="periodProgressFill" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Сегментированный переключатель режимов расписания -->
+        <div class="schedule-controls">
+          <div class="segmented-control" role="tablist" aria-label="Варианты расписания">
+            <button type="button" class="segment-btn is-active" data-variant="friday" role="tab" aria-selected="true">
+              Пятница (подтверждённая сетка · 10 уроков)
+            </button>
+            <button type="button" class="segment-btn" data-variant="regular" role="tab" aria-selected="false">
+              Понедельник — Четверг (требует уточнения)
+            </button>
+          </div>
+        </div>
+
+        <div id="variantFridayPanel">
+          <div class="timetable-wrap">
+            <table class="apple-table" id="bellsTable">
+              <thead>
+                <tr>
+                  <th>Урок</th>
+                  <th>Начало</th>
+                  <th>Окончание</th>
+                  <th>Длительность</th>
+                  <th>Перемена</th>
+                  <th>Состояние</th>
+                </tr>
+              </thead>
+              <tbody id="bellsTableBody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="variantRegularPanel" hidden>
+          <div class="notice-panel">
+            <p class="detail-eyebrow">Данные не приложены</p>
+            <h3>Сетка звонков на Пн–Чт отсутствует в исходных материалах</h3>
+            <p>
+              На предоставленной фотографии зафиксировано расписание на <strong>пятницу</strong> (1-й урок 08:00–08:25 длительностью 25 минут, далее уроки по 45 минут с 08:30 до 16:55). Чтобы не использовать неподтверждённые данные других школ, эта вкладка оставлена для официального приказа на понедельник — четверг.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="global-footer">
+    <div class="container footer-inner">
+      <div class="footer-note">
+        Школьный навигатор №60 · Индивидуальный проект (допуск к ОГЭ) · МБОУ «СОШ № 60», г. Новокузнецк
+      </div>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <a href="./index.html">Обзор</a>
+        <a href="./teachers.html">Учителя</a>
+        <a href="./map.html">Карта</a>
+        <a href="./schedule.html">Звонки</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

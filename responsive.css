@@ -1,0 +1,153 @@
+/* ==========================================================================
+   АДАПТИВНОСТЬ (DESKTOP, LAPTOP, TABLET, MOBILE: 1920px -> 360px)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .editorial-split {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .catalog-layout,
+  .map-stage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-sheet {
+    position: static;
+  }
+
+  .time-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container,
+  .nav-container {
+    padding: 0 18px;
+  }
+
+  .nav-burger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 18px 20px;
+    background-color: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-item {
+    padding: 13px 0;
+    font-size: 16px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .nav-item.is-active::after {
+    display: none;
+  }
+
+  .hero-stage {
+    padding: 48px 0 40px;
+  }
+
+  .image-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .ticker-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 24px 0;
+  }
+
+  .facts-columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .directory-head {
+    display: none;
+  }
+
+  .directory-item {
+    grid-template-columns: 1fr auto;
+    gap: 6px 12px;
+  }
+
+  .dir-name {
+    grid-column: 1 / 2;
+  }
+
+  .dir-room {
+    grid-column: 2 / 3;
+    text-align: right;
+  }
+
+  .dir-role {
+    grid-column: 1 / 2;
+    font-size: 13px;
+  }
+
+  .dir-link {
+    grid-column: 2 / 3;
+  }
+
+  .map-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .segmented-control {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .segment-btn {
+    padding: 8px 6px;
+    text-align: center;
+  }
+
+  .map-search-bar {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .timetable-wrap {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .wing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plan-surface {
+    padding: 18px;
+  }
+}

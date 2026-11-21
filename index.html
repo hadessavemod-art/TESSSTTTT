@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Школьный навигатор №60 — МБОУ «СОШ № 60»</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./responsive.css">
+  <script src="./data.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body data-page="home">
+  <header class="global-nav">
+    <div class="nav-container">
+      <a href="./index.html" class="nav-brand" aria-label="Школьный навигатор №60">
+        <img src="./school-logo.png" alt="Логотип Школьный навигатор №60" class="nav-logo" width="24" height="24">
+        <span>Навигатор №60</span>
+      </a>
+
+      <button class="nav-burger" id="navToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Меню">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+
+      <nav class="nav-links" id="mainNav" aria-label="Основная навигация">
+        <a href="./index.html" class="nav-item is-active">Обзор</a>
+        <a href="./teachers.html" class="nav-item">Учителя</a>
+        <a href="./map.html" class="nav-item">Карта школы</a>
+        <a href="./schedule.html" class="nav-item">Звонки</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero: светлый воздух, точная типографика, широкоформатный архитектурный кадр -->
+    <section class="hero-stage">
+      <div class="container hero-header-block reveal-on-scroll">
+        <p class="eyebrow">МБОУ «СОШ № 60» · Новокузнецк</p>
+        <h1 class="display-title">Школьный навигатор №60</h1>
+        <p class="display-subtitle">
+          Точная система ориентации в школе. Кабинеты, педагогический состав и расписание звонков — в одном спокойном и быстром интерфейсе.
+        </p>
+        <div class="hero-cta-row">
+          <a href="./map.html" class="pill-btn pill-btn-dark">Открыть карту школы</a>
+          <a href="./teachers.html" class="text-link">Найти учителя <span aria-hidden="true">›</span></a>
+        </div>
+      </div>
+
+      <div class="container hero-media-wrap reveal-on-scroll">
+        <figure class="cinema-frame">
+          <img src="./school-building.jpg" alt="Здание МБОУ «СОШ № 60» города Новокузнецка" class="cinema-image">
+          <figcaption class="image-caption">
+            <span>ул. Дузенко, 14А · Орджоникидзевский район</span>
+            <span>Архитектурный обзор корпуса</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Живая полоса текущего времени и звонка -->
+    <section class="live-ticker-section" aria-label="Текущий статус уроков">
+      <div class="container ticker-inner">
+        <div class="ticker-status">
+          <span class="live-indicator" aria-hidden="true"></span>
+          <span id="homeStatusText">Синхронизация расписания звонков...</span>
+        </div>
+        <a href="./schedule.html" class="text-link text-link-sm">Расписание звонков <span aria-hidden="true">›</span></a>
+      </div>
+    </section>
+
+    <!-- Редакционная секция: Проблема и архитектура решения -->
+    <section class="editorial-section">
+      <div class="container editorial-split">
+        <div class="editorial-lead-col reveal-on-scroll">
+          <p class="eyebrow">Зачем это создано</p>
+          <h2 class="section-headline">Ориентация без лишних вопросов.</h2>
+          <p class="body-large">
+            В дни олимпиад, собраний и смены расписания ученикам, родителям и новым сотрудникам важно за секунды понять, где проходит урок и в каком кабинете найти преподавателя.
+          </p>
+          <p class="body-muted">
+            «Школьный навигатор №60» объединяет официальный реестр из 40 сотрудников, поэтажную схему 4 уровней и точный таймер звонков в единую связанную систему.
+          </p>
+        </div>
+
+        <div class="editorial-media-col reveal-on-scroll">
+          <figure class="clean-figure">
+            <img src="./school-interior.jpg" alt="Учебный коридор школы" class="editorial-photo">
+            <figcaption class="image-caption">
+              <span>Навигация по этажам</span>
+              <span>Сквозной переход от фамилии педагога к помещению</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Три ключевых инструмента в виде минималистичного списка-индекса -->
+    <section class="index-section">
+      <div class="container">
+        <div class="index-header reveal-on-scroll">
+          <p class="eyebrow">Разделы системы</p>
+          <h2 class="section-headline">Три инструмента. Ничего лишнего.</h2>
+        </div>
+
+        <div class="feature-list">
+          <a href="./teachers.html" class="feature-row reveal-on-scroll">
+            <div class="feature-meta">01 · Каталог</div>
+            <div class="feature-main">
+              <h3 class="feature-title">Педагогический состав</h3>
+              <p class="feature-desc">Полный справочник всех 40 сотрудников школы. Мгновенный поиск по ФИО, предмету и кабинету.</p>
+            </div>
+            <div class="feature-action">Открыть <span aria-hidden="true">›</span></div>
+          </a>
+
+          <a href="./map.html" class="feature-row reveal-on-scroll">
+            <div class="feature-meta">02 · Навигация</div>
+            <div class="feature-main">
+              <h3 class="feature-title">Интерактивная карта школы</h3>
+              <p class="feature-desc">Поэтажная схема четырёх этажей с подсветкой выбранного кабинета и списком закреплённых педагогов.</p>
+            </div>
+            <div class="feature-action">Открыть <span aria-hidden="true">›</span></div>
+          </a>
+
+          <a href="./schedule.html" class="feature-row reveal-on-scroll">
+            <div class="feature-meta">03 · Время</div>
+            <div class="feature-main">
+              <h3 class="feature-title">Расписание звонков</h3>
+              <p class="feature-desc">Точная сетка уроков и перемен с автоматическим выделением текущего урока и обратным отсчётом.</p>
+            </div>
+            <div class="feature-action">Открыть <span aria-hidden="true">›</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Лаконичная справка об учреждении -->
+    <section class="facts-section">
+      <div class="container facts-columns">
+        <div class="fact-column">
+          <p class="eyebrow">Образовательное учреждение</p>
+          <h3 class="fact-heading">МБОУ «СОШ № 60»</h3>
+          <p class="fact-text">654025, Кемеровская область — Кузбасс, г. Новокузнецк, Орджоникидзевский р-н, ул. Дузенко, д. 14А.</p>
+          <p class="fact-text">Директор: Янькин Дмитрий Валерьевич · Приёмная: +7 (3843) 31-07-59</p>
+          <a href="https://shkola60-kuz.kemobl.ru/" target="_blank" rel="noopener noreferrer" class="text-link text-link-sm">Официальный сайт школы <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="fact-column">
+          <p class="eyebrow">Прозрачность данных</p>
+          <h3 class="fact-heading">О точности сведений</h3>
+          <p class="fact-text">
+            Справочник педагогов (40 человек) и расписание звонков (сетка «Пятница», 10 уроков) внесены строго по предоставленным документам школы. Поэтажная карта выполнена в виде схематической модели на основе нумерации кабинетов.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="global-footer">
+    <div class="container footer-inner">
+      <div class="footer-note">
+        Школьный навигатор №60 · Индивидуальный проект (допуск к ОГЭ) · МБОУ «СОШ № 60», г. Новокузнецк
+      </div>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <a href="./index.html">Обзор</a>
+        <a href="./teachers.html">Учителя</a>
+        <a href="./map.html">Карта</a>
+        <a href="./schedule.html">Звонки</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

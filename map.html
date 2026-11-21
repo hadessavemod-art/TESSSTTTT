@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карта школы — Школьный навигатор №60</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./responsive.css">
+  <script src="./data.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body data-page="map">
+  <header class="global-nav">
+    <div class="nav-container">
+      <a href="./index.html" class="nav-brand" aria-label="Школьный навигатор №60">
+        <img src="./school-logo.png" alt="Логотип Школьный навигатор №60" class="nav-logo" width="24" height="24">
+        <span>Навигатор №60</span>
+      </a>
+
+      <button class="nav-burger" id="navToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Меню">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+
+      <nav class="nav-links" id="mainNav" aria-label="Основная навигация">
+        <a href="./index.html" class="nav-item">Обзор</a>
+        <a href="./teachers.html" class="nav-item">Учителя</a>
+        <a href="./map.html" class="nav-item is-active">Карта школы</a>
+        <a href="./schedule.html" class="nav-item">Звонки</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="subpage-header">
+      <div class="container">
+        <p class="eyebrow">Навигация по корпусу</p>
+        <h1 class="subpage-title">Карта школы</h1>
+        <p class="subpage-lead">
+          Переключайте этажи, ищите кабинет по номеру или фамилии преподавателя. Выбранное помещение подсвечивается на схеме.
+        </p>
+      </div>
+    </section>
+
+    <section class="map-workspace-section">
+      <div class="container">
+        <!-- Сдержанное уведомление о схематическом статусе -->
+        <div class="subtle-note" role="note">
+          <strong>Схематическая модель этажей:</strong> так как официальные чертежи БТИ МБОУ «СОШ № 60» не опубликованы в открытом доступе, схема построена по подтверждённой поэтажной нумерации кабинетов из реестра школы (100-е — 1 этаж, 200-е — 2 этаж, 300-е — 3 этаж, 400-е — 4 этаж).
+        </div>
+
+        <!-- Сегментированный переключатель этажей (Apple Segmented Control) + поиск -->
+        <div class="map-toolbar">
+          <div class="segmented-control" role="tablist" aria-label="Выбор этажа">
+            <button type="button" class="segment-btn is-active" data-floor="1" role="tab" aria-selected="true">1 этаж</button>
+            <button type="button" class="segment-btn" data-floor="2" role="tab" aria-selected="false">2 этаж</button>
+            <button type="button" class="segment-btn" data-floor="3" role="tab" aria-selected="false">3 этаж</button>
+            <button type="button" class="segment-btn" data-floor="4" role="tab" aria-selected="false">4 этаж</button>
+          </div>
+
+          <div class="map-search-bar">
+            <label for="mapSearchInput" class="sr-only">Поиск кабинета или учителя</label>
+            <input
+              type="search"
+              id="mapSearchInput"
+              class="apple-input"
+              placeholder="Кабинет (307, Спортзал) или фамилия учителя..."
+              autocomplete="off"
+            >
+            <button type="button" id="mapSearchBtn" class="pill-btn pill-btn-dark">Найти</button>
+            <button type="button" id="mapResetBtn" class="quiet-btn">Общий вид</button>
+          </div>
+        </div>
+
+        <div id="mapFeedback" class="map-toast" aria-live="polite" hidden></div>
+
+        <!-- Чистое рабочее пространство карты -->
+        <div class="map-stage-grid">
+          <div class="plan-surface">
+            <div class="plan-top-bar">
+              <div>
+                <span class="plan-level-tag" id="floorCodeLabel">Уровень 01</span>
+                <h2 class="plan-level-title" id="floorTitleLabel">1 этаж — Входная зона, начальная школа и инфраструктура</h2>
+              </div>
+              <div class="plan-legend">
+                <span><i class="legend-dot is-room"></i> Кабинет</span>
+                <span><i class="legend-dot is-infra"></i> Общая зона</span>
+                <span><i class="legend-dot is-selected"></i> Выбрано</span>
+              </div>
+            </div>
+
+            <div class="floor-canvas" id="floorPlanCanvas" role="region" aria-label="Схема этажа">
+              <!-- Генерируется из data.js в app.js -->
+            </div>
+
+            <div class="plan-bottom-bar">
+              <span>Коридорная планировка · Предварительная навигационная схема</span>
+              <span>МБОУ «СОШ № 60»</span>
+            </div>
+          </div>
+
+          <!-- Минималистичная информационная панель помещения -->
+          <aside class="detail-sheet" id="roomInspector" aria-live="polite">
+            <div id="roomInspectorBody">
+              <p class="detail-eyebrow">Помещение</p>
+              <h3 class="detail-title">Выберите кабинет</h3>
+              <p class="detail-muted">
+                Нажмите на любое помещение на схеме или введите номер кабинета в строку поиска.
+              </p>
+
+              <div class="quick-jump-group">
+                <span class="detail-eyebrow">Ключевые точки</span>
+                <div class="quick-pills">
+                  <button type="button" class="mini-pill" data-jump-room="Столовая">Столовая</button>
+                  <button type="button" class="mini-pill" data-jump-room="Спортзал">Спортзал</button>
+                  <button type="button" class="mini-pill" data-jump-room="Библиотека">Библиотека</button>
+                  <button type="button" class="mini-pill" data-jump-room="208">Каб. 208</button>
+                  <button type="button" class="mini-pill" data-jump-room="307">Каб. 307</button>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Сотрудники без номера кабинета -->
+        <div class="unassigned-section">
+          <div class="unassigned-header">
+            <p class="eyebrow">Примечание по реестру</p>
+            <h3>Сотрудники без закреплённого кабинета (12)</h3>
+            <p>
+              В исходном документе школы для следующих сотрудников кабинет указан как «Не указан». Место проведения занятий уточняется в расписании дня или приёмной.
+            </p>
+          </div>
+          <div id="unassignedStaffList" class="unassigned-grid"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="global-footer">
+    <div class="container footer-inner">
+      <div class="footer-note">
+        Школьный навигатор №60 · Индивидуальный проект (допуск к ОГЭ) · МБОУ «СОШ № 60», г. Новокузнецк
+      </div>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <a href="./index.html">Обзор</a>
+        <a href="./teachers.html">Учителя</a>
+        <a href="./map.html">Карта</a>
+        <a href="./schedule.html">Звонки</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
